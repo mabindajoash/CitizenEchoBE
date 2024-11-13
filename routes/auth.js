@@ -45,6 +45,7 @@ router.post('/login', (req, res) => {
             // Create JWT payload and sign token
             const payload = { id: user.id, username: user.username, role: user.role };
             const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
+            console.log('JWT_EXPIRATION:', process.env.JWT_EXPIRATION);
 
             res.json({ message: 'Login successful', token });
         });
